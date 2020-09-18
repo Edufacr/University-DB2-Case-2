@@ -2,7 +2,7 @@ package controller;
 
 public class LogInController {
 
-    LogInController(){
+    public LogInController(){
 
     }
 
