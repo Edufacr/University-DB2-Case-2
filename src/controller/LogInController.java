@@ -7,7 +7,7 @@ public class LogInController {
     }
 
     public boolean SignIn(String pEmail, String pPassword){
-        if (pEmail == "1") {
+        if (pEmail.isEmpty()) {
             return true;
         }
         return false;
