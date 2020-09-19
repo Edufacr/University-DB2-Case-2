@@ -1,7 +1,10 @@
 package view;
 
+import model.LogInModel;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
 
@@ -17,6 +20,15 @@ public class MainFrame extends JFrame {
     }
 
     public static void main(String[] args) {
-        MainFrame frame = new MainFrame(new LogInPanel());
+        //MainFrame frame = new MainFrame(new LogInPanel());
+        LogInModel lm = new LogInModel();
+        ArrayList<Integer> r = lm.SignIn("mabo.daniel","pass");
+        if (r != null) {
+            for (int prs : r) {
+                System.out.println(prs);
+            }
+        } else {
+            System.out.println("failed login");
+        }
     }
 }

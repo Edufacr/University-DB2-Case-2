@@ -1,9 +1,6 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseConnector implements ICredentials {
     private Connection connection = null;
@@ -21,17 +18,7 @@ public class DatabaseConnector implements ICredentials {
         }
     }
 
-    public ResultSet query(String pQuery) {
-        ResultSet result = null;
-
-        try {
-            Statement statement = this.connection.createStatement();
-            result = statement.executeQuery(pQuery);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-
-        return result;
+    public Connection getConnection() {
+        return connection;
     }
 }
