@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Action;
 import javax.swing.BoxLayout;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
 
 import controller.LogInController;
 
@@ -25,7 +27,6 @@ public class LogInPanel extends JPanel {
     private final int textFieldSize = 20;
 
     private LogInController controller;
-    private JFrame currentFrame;
 
     private JButton singInButton;
     private ActionListener singInButtonActionListener;
@@ -42,14 +43,11 @@ public class LogInPanel extends JPanel {
         singInButton.addActionListener(singInButtonActionListener);
     }
 
-    public void setCurrentFrame(JFrame pJFrame){
-        currentFrame = pJFrame;
-    }
-
     private void singIn(){
-        boolean logInSuccesfull = controller.SignIn(emailField.getText(), passwordField.getText());
-        if (logInSuccesfull) {
-            JOptionPane.showMessageDialog(null, singInErrorString);
+        ArrayList<Integer> permissions = controller.SignIn(emailField.getText(), passwordField.getText());
+        if (permissions != null) {
+            SwingUtilities.getWindowAncestor(this).setVisible(false);
+            MainFrame frame = new MainFrame(new InfoPanel(permissions));
         }
         JOptionPane.showMessageDialog(null, singInErrorString);
 

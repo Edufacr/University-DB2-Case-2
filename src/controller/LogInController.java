@@ -1,16 +1,20 @@
 package controller;
 
+import java.util.ArrayList;
+
 public class LogInController {
 
     public LogInController(){
 
     }
 
-    public boolean SignIn(String pEmail, String pPassword){
+    public ArrayList<Integer> SignIn(String pEmail, String pPassword){
+        // Manda a traer los permisos en un ArrayList
+        ArrayList<Integer> permissions = null;
         if (pEmail.isEmpty()) {
-            return true;
+            return permissions;
         }
-        return false;
+        return permissions;
     }
     
 }
