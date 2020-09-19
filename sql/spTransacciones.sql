@@ -17,13 +17,14 @@ GO
 -- se asume que el usuario que llama este sp tiene el permiso (capa logica se encargda de eso)
 -- !!mala praxis, uno debería de verifircar los permisos acá también
 CREATE PROCEDURE dbo.Transacciones
-    @sucursal VARCHAR(120)
+    @user VARCHAR(120)
 AS
-    select S.Name as Sucursal, S.Phone as Telefono, M.Descripcion, M.Fecha, M.Monto
+    select S.Name as Sucursal, M.Descripcion, M.Fecha, M.Monto
     from [dbo].[Movimiento] M INNER JOIN [dbo].[Rep_Sucursal] S on M.IdSucursal = S.SucursalId
-    where S.Enabled = 0 and S.Name = @sucursal and M.Deleted = 0
+    inner join [dbo].[Usuario] U on S.Administrador = U.Id
+    where S.Enabled = 0 and U.Email = @user and M.Deleted = 0
 GO
 
 -- example to execute the stored procedure we just created
-EXECUTE dbo.Transacciones 1
+EXECUTE dbo.Transacciones 'mabo.daniel'
 GO
