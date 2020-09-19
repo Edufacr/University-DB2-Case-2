@@ -61,6 +61,8 @@ hs_err_pid*
 # *.iml
 # *.ipr
 
+.idea
+.idea/
 # CMake
 cmake-build-*/
 
