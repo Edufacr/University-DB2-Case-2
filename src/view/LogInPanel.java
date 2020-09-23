@@ -22,7 +22,7 @@ public class LogInPanel extends JPanel {
 
     private final String emailLabelString = "Email:";
     private final String passwordLabelString = "Password:";
-    private final String singInButtonString = "Sing In:";
+    private final String singInButtonString = "Sign In:";
     private final String singInErrorString = "Incorrect user or password";
     private final int textFieldSize = 20;
 
@@ -48,6 +48,7 @@ public class LogInPanel extends JPanel {
         if (permissions != null) {
             SwingUtilities.getWindowAncestor(this).setVisible(false);
             MainFrame frame = new MainFrame(new InfoPanel(permissions));
+            return;
         }
         JOptionPane.showMessageDialog(null, singInErrorString);
 
