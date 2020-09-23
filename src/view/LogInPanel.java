@@ -48,6 +48,7 @@ public class LogInPanel extends JPanel {
         if (permissions != null) {
             SwingUtilities.getWindowAncestor(this).setVisible(false);
             MainFrame frame = new MainFrame(new InfoPanel(permissions));
+            return;
         }
         JOptionPane.showMessageDialog(null, singInErrorString);
 
