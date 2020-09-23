@@ -29,7 +29,7 @@ AS
         BEGIN
             Select distinct P.Codigo, P.Descripcion
             from [dbo].[Permiso] P INNER JOIN [dbo].[PermisosXUsuario] PU on P.Id = PU.IdPermiso
-            where PU.IdUsuario = @uid and P.Deleted = 0
+            where PU.IdUsuario = @uid and P.Deleted = 0 and PU.Deleted = 0
             UNION
             SELECT distinct P.Codigo, P.Descripcion
             from [dbo].[Permiso] P INNER JOIN [dbo].[PermisosXRol] PR on P.Id = PR.IdPermiso
