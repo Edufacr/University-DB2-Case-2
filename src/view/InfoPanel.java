@@ -9,15 +9,15 @@ import java.awt.Component;
 
 public class InfoPanel extends JPanel{
 
+    public static final int NAME_LABEL_INDEX = 0;
+    public static final int AMOUNT_LABEL_INDEX = 1;
+    public static final int EDIT_BUTTON_INDEX = 2;
+    public static final int DELETE_BUTTON_INDEX = 3;
+    public static final int REPORT_BUTTON_INDEX = 4;
+
     private final String editButtonString = "Edit";
     private final String deleteButtonString = "Delete";
     private final String reportButtonString = "Transactions";
-
-    private final int nameLabelIndex = 0;
-    private final int amountLabelIndex = 1;
-    private final int editButtonIndex = 2;
-    private final int deleteButtonIndex = 3;
-    private final int reportButtonIndex = 4;
 
     private String nameLabelString;
     private String amountLabelString;
@@ -34,11 +34,11 @@ public class InfoPanel extends JPanel{
 
     private void createComponents(){
         components = new ArrayList<Component>();
-        components.add(nameLabelIndex, new JLabel(nameLabelString));
-        components.add(amountLabelIndex, new JLabel(amountLabelString));
-        components.add(editButtonIndex, new JButton(editButtonString));
-        components.add(deleteButtonIndex, new JButton(deleteButtonString));
-        components.add(reportButtonIndex, new JButton(reportButtonString));
+        components.add(NAME_LABEL_INDEX, new JLabel(nameLabelString));
+        components.add(AMOUNT_LABEL_INDEX, new JLabel(amountLabelString));
+        components.add(EDIT_BUTTON_INDEX, new JButton(editButtonString));
+        components.add(DELETE_BUTTON_INDEX, new JButton(deleteButtonString));
+        components.add(REPORT_BUTTON_INDEX, new JButton(reportButtonString));
     }
 
     private void addComponents(ArrayList<Integer> pPermissionArray){
